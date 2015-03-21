@@ -1,0 +1,43 @@
+; the next section is mandatory
+
+[general]
+name=Open Aerial Map (OAM)
+email=tassia@acaia.ca
+author=Tassia Camoes Araujo
+qgisMinimumVersion=2.0
+description=This plugin can be used to tile local aerial imagery dataset and
+    upload them to OAM. It implements the OAM upload API commands for sending
+    ready-tiles to the main OAM server or a specific node. 
+about=Imagery from satellites, unmanned aerial vehicles (UAVs) and other
+    aircraft is becoming increasingly available after a disaster. It is often
+    difficult to determine what is available and easily access it.
+    OpenAerialMap (OAM) seeks to solve this by providing a simple open way to
+    host and provide access to imagery for humanitarian response and disaster
+    preparedness.
+version=version 0.1
+; end of mandatory metadata
+
+; start of optional metadata
+category=Raster
+changelog=0.1 - First experimental release
+
+; Tags are in comma separated value format, spaces are allowed within the
+; tag name.
+; Tags should be in English language. Please also check for existing tags and
+; synonyms before creating a new one.
+tags=wkt,raster
+
+; these metadata can be empty, they will eventually become mandatory.
+homepage=http://wiki.openstreetmap.org/wiki/OpenAerialMap
+tracker=https://github.com/hotosm/OpenAerialMap/issues
+repository=https://github.com/hotosm/OpenAerialMap
+icon=icon.png
+
+; experimental flag (applies to the single version)
+experimental=True
+
+; deprecated flag (applies to the whole plugin and not only to the uploaded version)
+deprecated=False
+
+; if empty, it will be automatically set to major version + .99
+qgisMaximumVersion=3.0
