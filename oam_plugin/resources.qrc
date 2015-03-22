@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="/plugins/testplug" >
+  <qresource prefix="/plugins/oamplug" >
      <file>icon.png</file>
   </qresource>
 </RCC>
