@@ -3,6 +3,7 @@ import os, paramiko
 class SSHConnection(object):
     """
     Connect and transfer files over SSH using paramiko library
+    Based on http://www.blog.pythonlibrary.org/2012/10/26/python-101-how-to-move-files-between-servers/
     """
 
     def __init__(self, host, username, password, port=22):
