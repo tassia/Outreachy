@@ -54,7 +54,6 @@ class SSHConnection(object):
             self.isOpen = False
         self.transport.close()
 
-
 class UploadWindow(QtGui.QWidget):
     """
     Main application window
@@ -108,7 +107,7 @@ class UploadWindow(QtGui.QWidget):
 
     def selectFile(self):
         selectedFile = QtGui.QFileDialog.getOpenFileName(self, 'Select File', os.path.expanduser("~"))
-        self.fileEdit.setText(selectedFilename)
+        self.fileEdit.setText(selectedFile)
         print 'Selected file'
 
     def upload (self):
