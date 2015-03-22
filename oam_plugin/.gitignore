@@ -1,6 +1,1 @@
-connection.pyc
-dialog.pyc
-__init__.pyc
-mainplugin.pyc
-OAMUpload.pyc
-resources.pyc
+*.pyc
