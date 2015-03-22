@@ -8,7 +8,7 @@ from connection import SSHConnection
 
 class OAMDialog(QtGui.QDialog):
     """
-    Main application window
+    Main OAM plugin dialog
     """
 
     def __init__(self,parent,iface):
@@ -16,7 +16,7 @@ class OAMDialog(QtGui.QDialog):
         
         self.iface = iface 
         self.parent = parent
-        self.dlgBase = None # It permits to reuse a base dialog 
+        self.dlgBase = None
 
         self.initLayout()
         self.initSignal()
@@ -25,20 +25,25 @@ class OAMDialog(QtGui.QDialog):
         self.setGeometry(350, 300, 300, 300)
         self.setWindowTitle('Upload via SSH')
 
-        self.serverLabel = QtGui.QLabel("Server:")
+        self.serverLabel = QtGui.QLabel('Server:')
         self.serverEdit = QtGui.QLineEdit(self)
 
-        self.userLabel = QtGui.QLabel("User:")
+        self.userLabel = QtGui.QLabel('User:')
         self.userEdit = QtGui.QLineEdit(self)
 
-        self.passwordLabel = QtGui.QLabel("Password:")
+        self.passwordLabel = QtGui.QLabel('Password:')
         self.passwordEdit = QtGui.QLineEdit(self)
         self.passwordEdit.setEchoMode(2)
 
-        self.fileLabel = QtGui.QLabel("File:")
+        self.fileLabel = QtGui.QLabel('Current layer:')
         self.fileEdit = QtGui.QLineEdit(self)
+        try:
+            layer_path = self.iface.activeLayer().dataProvider().dataSourceUri()
+            self.fileEdit.setText(layer_path)
+        except:
+            print 'Failed to get layer path: ', sys.exc_info()[1] 
 
-        self.fileButton = QtGui.QPushButton('Select', self)
+        self.fileButton = QtGui.QPushButton('Select another', self)
         self.uploadButton = QtGui.QPushButton('Upload', self)
         self.quitButton = QtGui.QPushButton('Quit', self)
 
@@ -76,6 +81,6 @@ class OAMDialog(QtGui.QDialog):
             ssh.push(self.fileEdit.text())
             print 'Uploaded file'
             ssh.close()
+            self.fileEdit.setText('')
         except:
-            print "Unexpected error: ", sys.exc_info()[1]
-
+            print 'Unexpected error: ', sys.exc_info()[1]
