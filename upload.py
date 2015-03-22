@@ -112,10 +112,13 @@ class UploadWindow(QtGui.QWidget):
         print 'Selected file'
 
     def upload (self):
-	ssh = SSHConnection(str(self.serverEdit.text()), str(self.userEdit.text()), str(self.passwordEdit.text()))
-	ssh.push(self.fileEdit.text())
-        print 'Uploaded file'
-	ssh.close()
+        try: 
+            ssh = SSHConnection(str(self.serverEdit.text()), str(self.userEdit.text()), str(self.passwordEdit.text()))
+            ssh.push(self.fileEdit.text())
+            print 'Uploaded file'
+            ssh.close()
+        except:
+            print "Unexpected error: ", sys.exc_info()[1]
 
 def main():
     app = QtGui.QApplication(sys.argv)
