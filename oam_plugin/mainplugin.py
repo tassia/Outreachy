@@ -2,6 +2,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
 
+from dialog import OAMDialog
+
 # initialize Qt resources from file resources.py
 import resources
 
@@ -14,7 +16,7 @@ class OAMPlugin:
   def initGui(self):
     # create action that will start plugin configuration
     self.action = QAction(QIcon(":/plugins/oamplug/icon.png"), "OAM plugin", self.iface.mainWindow())
-    self.action.setObjectName("OAMAction")
+    self.action.setObjectName("Action")
     self.action.setWhatsThis("Configuration for OAM plugin")
     self.action.setStatusTip("This is status tip")
     QObject.connect(self.action, SIGNAL("triggered()"), self.run)
@@ -38,6 +40,8 @@ class OAMPlugin:
   def run(self):
     # create and show a configuration dialog or something similar
     print "OAMPlugin: run called!"
+    dlg = OAMDialog(self.iface.mainWindow(), self.iface) 
+    dlg.exec_()
 
   def renderOAM(self, painter):
     # use painter for drawing to map canvas
