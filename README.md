@@ -2,7 +2,7 @@
 
 This repository will gather code and documentation used during my application to the Outreachy program 2015.
 
-QGIS OAM plugin
+[QGIS OAM plugin](https://github.com/tassia/Outreachy/tree/master/oam_plugin)
 My first contribution to the OAM team, a plugin to upload files via SSH.
 
 INSTALL
